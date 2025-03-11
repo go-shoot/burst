@@ -2,7 +2,7 @@ Q = Node.prototype.Q = function(el, func) {
     let els = this.querySelectorAll?.(el) ?? document.querySelectorAll(el);
     return func ? els.forEach(func) : els.length > 1 ? [...els] : els[0];
 }
-navigator.serviceWorker.register('/burst/worker.js', {scope: './'}).then(async () => {
+navigator.serviceWorker.register('/burst/worker.js', {scope: '/burst/'}).then(async () => {
     if (!Q('link[href="/include/common.css"]')) return Promise.reject();
     document.head.insertAdjacentHTML('afterbegin', await (await caches.match('/include/head.html') || await fetch('/include/head.html')).text())
 }).catch(() => location.reload());
