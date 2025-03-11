@@ -40,7 +40,7 @@ const deleteTentative = comp => Promise.all([
 ]).then(() => new Response('', {status: 200})).catch(er => console.error(er) ?? new Response('', {status: 400}));
 
 const is = {
-    internal: url => url.includes('go-shoot.github.io/burst'),
+    internal: url => 'go-shoot.github.io' == new URL(url).host,
     parts: url => /img\/.+?\/.+?\.png$/.test(url),
     cacheable: url => /tier\.json$/.test(new URL(url).pathname) || !/\.json$/.test(new URL(url).pathname),
 }
@@ -61,7 +61,7 @@ const Head = {
         .then(resp => resp.text())
         .then(html => Head.code = `${html}<style>body {opacity:0;}</style>`),
 
-    add: async resp => is.internal(resp.url) && (resp?.headers.get('content-type') || '').includes('text/html') ? 
+    add: async resp => (resp?.headers.get('content-type') || '').includes('text/html') ? 
         new Response(await Head.fetch() + await resp.text(), Head.response(resp)) : resp,
             
     response: ({status, statusText, headers}) => ({status, statusText, headers})
