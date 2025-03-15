@@ -189,7 +189,7 @@
                 location.reload();
             }).catch(er => console.error(er));
     }
-    const flush = message => fetch('/sw/update').then(resp => message.innerText = resp.status == 200 ? '成功' : '失敗');
+    const flush = message => fetch('/burst/sw/update').then(resp => message.innerText = resp.status == 200 ? '成功' : '失敗');
     const reset = message => Promise.all([
         DB.discard('Burst', ev => message.innerText = ev.type == 'blocked' ? '請先關閉所有本網的分頁' : ev.type),
         caches.delete('Burst'), caches.delete('Burst/parts'),
