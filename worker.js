@@ -1,4 +1,4 @@
-const scoping = url => url.replace(/go-shoot\.github\.io(?!\/burst)/, 'go-shoot.github.io/burst');
+const scoping = url => url.replace(new RegExp(`${location.host}(?!\\/burst)`), `${location.host}/burst`);
 
 self.addEventListener('install', ev => {
     self.skipWaiting();
@@ -40,7 +40,7 @@ const deleteTentative = comp => Promise.all([
 ]).then(() => new Response('', {status: 200})).catch(er => console.error(er) ?? new Response('', {status: 400}));
 
 const is = {
-    internal: url => 'go-shoot.github.io' == new URL(url).host,
+    internal: url => location.host == new URL(url).host,
     parts: url => /img\/.+?\/.+?\.png$/.test(url),
     cacheable: url => /tier\.json$/.test(new URL(url).pathname) || !/\.json$/.test(new URL(url).pathname),
 }
@@ -68,12 +68,11 @@ const Head = {
 }
 const List = {
     essential: [
-        '/burst/parts/bg.svg', '/burst/include/head.html',
+        '/burst/parts/bg.svg', 
         'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js',
     ],
     periodic: [
-        '/db/top-tier.json', '/db/prod-launcher.json',
         '/include/common.js',
         '/parts/parts.js', '/parts/catalog.js',
         '/products/row.js', '/products/maps.js', '/products/table.js',
@@ -81,8 +80,7 @@ const List = {
         '/parts/catalog.css', '/parts/typography.css',
         '/products/products.css',
         '/products/', '/parts/', '/', '/prize/',
-        '/prize/carousel.js', '/prize/Prize7.webp',
+        '/prize/carousel.js', 
         '/include/component.css', '/parts/ruler.css',
-        '/include/fonts/Mincho.woff2', '/include/fonts/FiraSans-Regular.woff2', '/include/fonts/FiraSansExtraCondensed-Regular.woff2'
     ],
 }

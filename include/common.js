@@ -13,7 +13,7 @@ const Cookie = {
 window.addEventListener('DOMContentLoaded', () => {
     document.title += ' ￨ 戰鬥陀螺 爆烈世代 ￭ 爆旋陀螺 擊爆戰魂 ￭ ベイブレードバースト';
     Cookie.pref?.mode && Q('html').classList.add(Cookie.pref.mode);
-    document.querySelectorAll('a[href]').forEach(a => a.href = a.href.replace(/go-shoot\.github\.io(?!\/burst)/, 'go-shoot.github.io/burst'));
+    document.querySelectorAll('a[href]').forEach(a => a.href = a.href.replace(new RegExp(`${location.host}(?!\\/burst)`), `${location.host}/burst`));
     setTimeout(() => Q('#day') && (Q('#day').checked = Cookie.pref?.mode == 'day'));
 });
 
