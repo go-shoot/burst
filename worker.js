@@ -25,7 +25,7 @@ self.addEventListener('fetch', ev => ev.respondWith(
 ));
 const updateFiles = resp => 
     caches.open('Burst').then(cache => Promise.all(
-        List.periodic.map(url => fetch(`${url}${/css|js|json$/.test(url) ? `?${Math.random()}` : ''}`).then(resp => cache.add(url, resp)))
+        List.periodic.map(url => fetch(`/burst${url}${/css|js|json$/.test(url) ? `?${Math.random()}` : ''}`).then(resp => cache.add(url, resp)))
     ))
     .then(() => resp ? new Response('', {status: 200}) : true)
     .catch(er => console.error(er), resp ? new Response('', {status: 400}) : false);

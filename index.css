@@ -261,9 +261,9 @@ footer
 {font-size:0.8em;}
 menu a span,h2:last-child
 {font-size:0.9em;}
-h4,#reboot span
+h4,#reboot span,#reboot ul+h5
 {font-size:1.05em;}
-h2:first-of-type,#reboot ul+h5,#contents div span
+h2:first-of-type,#contents div span
 {font-size:1.2em;}
 #reboot i,#reboot i::before
 {font-size:1.5em;}
