@@ -255,7 +255,7 @@ footer {
 /*font-size*/
 footer
 {font-size:0.5em;}
-#reboot dl+div
+#reboot dl+div,dialog-gallery
 {font-size:0.7em;}
 #contents div,h1,h5,time,fieldset li,#reboot li
 {font-size:0.8em;}
@@ -274,4 +274,8 @@ h4+div a::before,#contents div a::before
     body {font-size:26px;} }
 @media (max-width:630px) and (orientation:portrait) {
     menu {margin:2.5em 2.5em 2.5em auto;}
+}
+
+dialog-gallery img {
+    height:40em;
 }

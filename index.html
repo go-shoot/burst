@@ -19,7 +19,7 @@
     #now img[src*=instagram],#now img[src*=twimg],#now img[src*=scontent] {width:100%;max-width:20em;}
     body {background:url(https://pbs.twimg.com/media/FyHma6_akAEPYb2?format=jpg&name=large) no-repeat center center / cover;}
     header {background:url(https://beyblade.takaratomy.co.jp/burst/public_html/category/img/logo_s.png) 0.5em 65% / auto 70% no-repeat;}
-    section fieldset~* {
+    section fieldset~:not(dialog-gallery) {
         color:hsl(var(--glow),100%,70%);
         text-shadow: 0 0 1em hsl(var(--glow),100%,70%), 0 0 2em hsl(var(--glow),100%,50%)
     }
@@ -201,7 +201,7 @@
 <script src="https://aeoq.github.io/dialog-gallery/script.js" type="module"></script>
 <script type="module">
     import {A,E,O,Q} from 'https://aeoq.github.io/AEOQ.mjs'
-    Q('#now').append(
+    Q('body').append(
         E('dialog-gallery#catalog', [7,9,9,13,13,13,15,8,9,9].map((pages, s) => 
             E('figure', [...Array(pages+1)].map((_, p) => 
                 E('img', {src: `img-catalogs/${`${s+2}`.padStart(2,0)}-${`${p}`.padStart(2,0)}.jpg`})
