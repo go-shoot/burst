@@ -71,6 +71,7 @@ const List = {
         '/burst/parts/bg.svg',
         'https://aeoq.github.io/AEOQ.mjs',
         'https://aeoq.github.io/dialog-gallery/script.js',
+        'https://aeoq.github.io/pointer-interaction/script.js',
         'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js',
     ],
