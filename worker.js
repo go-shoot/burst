@@ -68,7 +68,9 @@ const Head = {
 }
 const List = {
     essential: [
-        '/burst/parts/bg.svg', 
+        '/burst/parts/bg.svg',
+        'https://aeoq.github.io/AEOQ.mjs',
+        'https://aeoq.github.io/dialog-gallery/script.js',
         'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js',
     ],
